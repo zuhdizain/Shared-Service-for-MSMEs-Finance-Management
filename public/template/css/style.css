@@ -1,0 +1,72 @@
+/* --------------------- Laptop -------------------- */
+@media (min-width: 992px) {
+    /* dashboard.blade.php */
+    .card-body .img-fluid {
+        width: 100%;
+        height: auto;
+    }
+
+    /* myProfile.blade.php */
+    .edit-sp {
+        margin-left: 5px;
+    }
+
+    /* tableEmployeeData.blade.php */
+    .profile .font {
+        margin-top: 16px;
+        margin-left: -40px;
+    }
+
+    .profile img {
+        width: 90px;
+        height: 90px;
+    }
+}
+
+
+
+
+
+
+
+
+/* --------------------- Phone/Tab -------------------- */
+@media (min-width: 320px) {
+     /* dashboard.blade.php */
+    .picture {
+        width: 100%;
+        max-width: 400px;
+        height: auto;
+    }
+
+    .birthday h3 {
+        font-size: 25px;
+    }
+
+    .birthday h5 {
+        font-size: 18px;
+    }
+
+    .birthday p {
+        font-size: 14px;
+        margin-top: -2px;
+    }
+
+    /* tableEmployeeData.blade.php */
+    .profile .font {
+        margin-top: 16px;
+    }
+
+    .profile h5 {
+        font-size: 18px;
+    }
+
+    .profile p {
+        font-size: 14px;
+    }
+
+    .profile img {
+        width: 85px;
+        height: 85px;
+    }
+}

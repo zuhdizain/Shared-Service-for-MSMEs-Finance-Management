@@ -1,0 +1,167 @@
+@extends('HR_Apps.layout.main')
+
+@section('content-hr')
+
+    <!-- Main Content -->
+    <div id="content">
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+            <!-- Page Heading -->
+            <div class="col mb-4">
+                <h3 class="h3 mb-0 text-gray-800">Details Data</h3>
+                <h6 class="h6 mb-0 text-gray-800">Berikut merupakan detail data karyawan yang mengikuti pelatihan.</h6>
+            </div>
+
+            <!-- Informasi Karyawan -->
+            <div class="card shadow mb-4">
+                <div class="card-header py-3 d-sm-flex justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary mt-2">Informasi Karyawan</h6>
+                    <div class="row float-right">
+                        <div class="my-2"></div>
+                        <a href="{{ route('training.edit', $training->id) }}" class="btn btn-warning mr-2 shadow-sm">
+                            <span class="icon text-white-50">
+                                <i class="fas fa-pencil-alt"></i>
+                            </span>
+                            <span class="text">Edit</span>
+                        </a>
+                        <div class="my-2"></div>
+                        <a href="{{ route('training.index') }}" class="btn btn-secondary mr-3 shadow-sm">
+                            <span class="icon text-white-50">
+                                <i class="fas fa-arrow-left"></i>
+                            </span>
+                            <span class="text">Kembali</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card Body -->
+                <div class="card-body container">
+
+                    <!-- Tambah Data Karyawan -->
+                    <div class="align-items-center">
+                        <div class="form-group row">
+                            <label for="employee_name" class="form-label font-weight-bold col-sm-2">
+                                Nama Lengkap</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="employee_name" id="employee_name" class="form-control bg-light border-0 small"
+                                value="{{ $training->employee_name }}" readonly disabled>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="emplpyee_email" class="form-label font-weight-bold col-sm-2">
+                                Email</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="employee_email" id="employee_email" class="form-control bg-light border-0 small" 
+                                value="{{ $training->employee_email }}" readonly disabled>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="employee_position" class="form-label font-weight-bold col-sm-2">
+                                Jabatan</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="employee_position" id="employee_position" class="form-control bg-light border-0 small"
+                                value="{{ $training->employee_position }}" readonly disabled>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="division_name" class="form-label font-weight-bold col-sm-2">Divisi</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="division_name" id="division_name" class="form-control bg-light border-0 small"
+                                value="{{ $training->division->division_name }}" readonly disabled>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Card Body -->
+            </div>
+
+            <!-- Informasi Pelatihan -->
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Informasi Pelatihan</h6>
+                </div>
+
+                <!-- Card Body -->
+                <div class="card-body container">
+                    <!-- Form Informasi Pelatihan -->
+                    <div class="align-items-center">
+                        <div class="form-group row">
+                            <label for="training_name" class="form-label font-weight-bold col-sm-2">
+                                Jenis Pelatihan</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="training_name" id="training_name" class="form-control bg-light border-0 small"
+                                value="{{ $training->training_name }}" readonly disabled>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="training_institute" class="form-label font-weight-bold col-sm-2">
+                                Penyelenggara</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="training_institute" id="training_institute" class="form-control bg-light border-0 small"
+                                value="{{ $training->training_institute }}" readonly disabled>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="startDate" class="form-label font-weight-bold col-sm-2">
+                                Tanggal Dimulai</label>
+                            <div class="col-sm-10">
+                                <input type="date" name="startDate" id="startDate" class="form-control bg-light border-0 small"
+                                value="{{ $training->startDate }}" readonly disabled>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="endDate" class="form-label font-weight-bold col-sm-2">
+                                Tanggal Selesai</label>
+                            <div class="col-sm-10">
+                                <input type="date" name="endDate" id="endDate" class="form-control bg-light border-0 small"
+                                value="{{ $training->endDate }}" readonly disabled>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="training_phone" class="form-label font-weight-bold col-sm-2">
+                                No. Telp</label>
+                            <div class="col-sm-10">
+                                <input type="number" name="training_phone" id="training_phone" class="form-control bg-light border-0 small"
+                                value="{{ $training->training_phone }}" readonly disabled>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="training_email" class="form-label font-weight-bold col-sm-2">
+                                Alamat Email</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="training_email" id="training_email" class="form-control bg-light border-0 small"
+                                value="{{ $training->training_email }}" readonly disabled>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="training_fee" class="form-label font-weight-bold col-sm-2">
+                                Biaya Pelatihan</label>
+                            <div class="col-sm-10">
+                                <input type="number" name="training_fee" id="training_fee" class="form-control bg-light border-0 small"
+                                value="{{ $training->training_fee }}" readonly disabled>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="training_address" class="form-label font-weight-bold col-sm-2">
+                                Alamat Pelatihan</label>
+                            <div class="col-sm-10">
+                                <textarea class="form-control bg-light border-0 small" name="training_address" rows="3" 
+                                readonly disabled>{{ $training->training_address }}</textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- End Card Body -->
+
+            </div>
+
+        </div>
+        <!-- /.container-fluid -->
+
+    </div>
+    <!-- End of Main Content -->
+
+@endsection
