@@ -70,7 +70,6 @@ class ViewController extends Controller
         // Akumulasi total order
         $totalOrder = Order::where('user_id', Auth::user()->id)
             ->whereNotNull('delivery_number')->count();
-
         // Akumulasi total order bulanan
         $totalOrderMonthly = count($order);
         $orderReport = OrderReport::where('user_id', Auth::user()->id)->get();
@@ -131,7 +130,6 @@ class ViewController extends Controller
     {
         return view('HR_Apps.website.myProfile');
     }
-
     public function profileInven()
     {
         return view('Inventory_Apps.website.myProfileInven');

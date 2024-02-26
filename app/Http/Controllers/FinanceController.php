@@ -2,23 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Exports\exportBalanceSheetReport;
 use App\Http\Controllers\Controller;
-use App\Models\CashIn;
-use App\Models\CostOfGoodsSold;
 use App\Models\CurrentAsset;
-use App\Models\GeneralAdminCost;
 use App\Models\NonCurrentAsset;
-use App\Models\OrderDetail;
-use App\Models\SellingServiceExpenses;
-use Carbon\Carbon;
-use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Maatwebsite\Excel\Facades\Excel;
 
 class FinanceController extends Controller
 {
+    public function index()
+    {
+        return view('Finance_Apps.pages.manage.index');
+    }
+
     private function strToIntr($str)
     {
         $string = str_replace('.', '', $str);
@@ -30,10 +26,10 @@ class FinanceController extends Controller
     // Balance Sheet
     public function balanceSheet()
     {
-        return view('Finance_Apps.pages.manage.balanceSheet');
+        return view('Finance_Apps.pages.report.balanceSheet');
     }
 
-    public function getBalanceSheet($month)
+    public function getCAandNCA($month)
     {
         $year = date("Y");
 
@@ -64,7 +60,7 @@ class FinanceController extends Controller
         }
     }
 
-    public function addBalanceSheet(Request $request)
+    public function addCAandNCA(Request $request)
     {
         // Validation data
         $validation = $request->validate([
@@ -98,7 +94,7 @@ class FinanceController extends Controller
         return redirect()->back();
     }
 
-    public function updateBalanceSheet(Request $request)
+    public function updateCAandNCA(Request $request)
     {
         // Get data
         $caID = $request->input('caID');
@@ -108,6 +104,7 @@ class FinanceController extends Controller
 
         // Validation data
         $validation = $request->validate([
+            'month'                 => 'required',
             'cashCA'                => 'required',
             'accountsReceivableCA'  => 'required',
             'suppliesCA'            => 'required',
